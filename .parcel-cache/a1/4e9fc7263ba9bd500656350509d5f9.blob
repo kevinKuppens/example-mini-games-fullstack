@@ -1,0 +1,94 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+_parcelHelpers.export(exports, "Cards", function () {
+  return Cards;
+});
+class Cards {
+  /**
+  * Function returning the numbers of pairs needed for the selected difficulty
+  * @param difficulty Value of the desire difficulty get from the user
+  * @returns A number to make the number of pairs.
+  */
+  static initDifficulty(difficulty) {
+    switch (difficulty) {
+      case 'easy':
+        return 3;
+      case 'medium':
+        return 4;
+      case 'hard':
+        return 5;
+      default:
+        return 0;
+    }
+  }
+  /**
+  * Function create randomly generated cars by pairs
+  * @param pairsCount numbers of pairs it will be created
+  */
+  static createPairs(pairsCount) {
+    // EASY(3pairs) - MEDIUM(4 pairs)- HARD(5pairs)
+    const cardsArray = [];
+    for (let pairsNumber = 0; pairsNumber < pairsCount; pairsNumber++) {
+      let cardNumber = Math.floor(Math.random() * 13);
+      cardNumber == 0 ? cardNumber = Math.floor(Math.random() * 13) : cardNumber;
+      let choosenCard;
+      switch (cardNumber) {
+        case 1:
+          choosenCard = "A";
+          break;
+        case 11:
+          choosenCard = 'K';
+          break;
+        case 12:
+          choosenCard = 'Q';
+          break;
+        case 13:
+          choosenCard = 'V';
+          break;
+        default:
+          choosenCard = cardNumber;
+      }
+      const cardSymbol = Math.floor(Math.random() * 4);
+      let choosenSymbol;
+      switch (cardSymbol) {
+        case 1:
+          choosenSymbol = 'spade';
+          break;
+        case 2:
+          choosenSymbol = 'heart';
+          break;
+        case 4:
+          choosenSymbol = 'diamond';
+          break;
+        default:
+          choosenSymbol = 'club';
+      }
+      const cardToPush = {
+        number: choosenCard,
+        symbol: choosenSymbol
+      };
+      cardsArray.push(cardToPush, cardToPush);
+    }
+    return cardsArray;
+  }
+  static createDeck(generatedCards) {
+    const tempIndex = [];
+    for (let card = 0; card < 6; card++) {
+      let nouvelIndex;
+      let checkExistence = true;
+      while (checkExistence) {
+        nouvelIndex = Math.floor(Math.random() * generatedCards.length);
+        console.log(tempIndex.find(e => {
+          e == nouvelIndex;
+        }));
+        if (!tempIndex.find(e => {
+          return e == nouvelIndex;
+        })) {
+          checkExistence = false;
+        }
+      }
+      tempIndex.push(nouvelIndex);
+    }
+    console.log(tempIndex);
+  }
+}

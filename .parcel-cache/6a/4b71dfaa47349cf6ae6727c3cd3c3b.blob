@@ -1,0 +1,26 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+_parcelHelpers.export(exports, "Cards", function () {
+  return Cards;
+});
+class Cards {
+  static initDifficulty(difficulty) {
+    let pairs;
+    switch (difficulty) {
+      case "easy":
+        pairs = 3;
+        break;
+      case "medium":
+        pairs = 4;
+        break;
+      case "hard":
+        pairs = 5;
+        break;
+    }
+    console.log(pairs);
+  }
+  static createPairs(pairsCount) {
+    // EASY(3pairs) - MEDIUM(4 pairs)- HARD(5pairs)
+    console.log(`PAIRS COUNT : ${pairsCount}`);
+  }
+}

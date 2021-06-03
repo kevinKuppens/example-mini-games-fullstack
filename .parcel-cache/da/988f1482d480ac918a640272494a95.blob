@@ -1,0 +1,74 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+_parcelHelpers.export(exports, "Cards", function () {
+  return Cards;
+});
+class Cards {
+  static initDifficulty(difficulty) {
+    switch (difficulty) {
+      case 'easy':
+        return 3;
+      case 'medium':
+        return 4;
+      case 'hard':
+        return 5;
+      default:
+        return 0;
+    }
+  }
+  static createPairs(pairsCount) {
+    // EASY(3pairs) - MEDIUM(4 pairs)- HARD(5pairs)
+    const cardsArray = [];
+    for (let pairsNumber = 0; pairsNumber < pairsCount; pairsNumber++) {
+      const cardNumber = Math.floor(Math.random() * 13);
+      let choosenCard;
+      switch (cardNumber) {
+        case 1:
+          choosenCard = "A";
+          break;
+        case 11:
+          choosenCard = 'K';
+          break;
+        case 12:
+          choosenCard = 'Q';
+          break;
+        case 13:
+          choosenCard = 'V';
+          break;
+        default:
+          choosenCard = cardNumber;
+      }
+      const cardColor = Math.floor(Math.random() * 2);
+      let choosenColor;
+      switch (cardColor) {
+        case 1:
+          choosenColor = 'red';
+          break;
+        default:
+          choosenColor = 'black';
+      }
+      const cardSymbol = Math.floor(Math.random() * 4);
+      let choosenSymbol;
+      switch (cardSymbol) {
+        case 1:
+          choosenSymbol = 'spade';
+          break;
+        case 2:
+          choosenSymbol = 'heart';
+          break;
+        case 4:
+          choosenSymbol = 'diamond';
+          break;
+        default:
+          choosenSymbol = 'club';
+      }
+      const cardToPush = {
+        number: choosenCard,
+        color: choosenColor,
+        symbol: choosenSymbol
+      };
+      cardsArray.push(cardToPush, cardToPush);
+    }
+    console.log(`PAIRS : ${cardsArray}`);
+  }
+}

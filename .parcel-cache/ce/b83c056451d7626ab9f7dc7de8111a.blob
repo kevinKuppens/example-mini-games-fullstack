@@ -1,0 +1,7 @@
+var _controllersCards = require('./controllers/Cards');
+var _controllersGameController = require('./controllers/game.controller');
+const init = () => {
+  console.log("memory game initiated");
+  _controllersGameController.GameController.gameStart(_controllersCards.Cards.initDifficulty('easy'));
+};
+window.addEventListener('load', init);

@@ -1,0 +1,33 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+_parcelHelpers.export(exports, "Cards", function () {
+  return Cards;
+});
+class Cards {
+  static initDifficulty(difficulty) {
+    switch (difficulty) {
+      case 'easy':
+        return 3;
+      case 'medium':
+        return 4;
+      case 'hard':
+        return 5;
+      default:
+        return 0;
+    }
+  }
+  static createPairs(pairsCount) {
+    // EASY(3pairs) - MEDIUM(4 pairs)- HARD(5pairs)
+    const cardsArray = [];
+    for (let pairsNumber = 0; pairsNumber < pairsCount; pairsNumber++) {
+      const cardNumber = Math.floor(Math.random() * 13);
+      let choosenCard;
+      switch (cardNumber) {
+        case 1:
+          choosenCard = "A";
+          break;
+      }
+    }
+    console.log(`PAIRS COUNT : ${pairsCount}`);
+  }
+}

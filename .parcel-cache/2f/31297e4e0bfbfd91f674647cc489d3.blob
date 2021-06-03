@@ -1,0 +1,11 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+_parcelHelpers.export(exports, "GameController", function () {
+  return GameController;
+});
+var _Cards = require("./Cards");
+class GameController {
+  static async gameStart(difficulty) {
+    _Cards.Cards.createPairs(await _Cards.Cards.initDifficulty(difficulty));
+  }
+}
